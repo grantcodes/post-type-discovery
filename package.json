@@ -1,0 +1,45 @@
+{
+  "name": "post-type-discovery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "npm run lint && jest --coverage",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+  },
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "dependencies": {
+    "emojis-list": "^3.0.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.5",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-semistandard": "^14.0.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.14.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not ie < 11"
+  ],
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
