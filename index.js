@@ -30,7 +30,7 @@ function ptd(mf2) {
     Array.isArray(mf2.properties[property]) &&
     typeof mf2.properties[property][0] !== 'undefined' &&
     mf2.properties[property][0] !== null &&
-    mf2.properties[property][0].trim() !== '';
+    mf2.properties[property].map(s => s !== '');
 
   // Get the main content of the post
   let content = null;

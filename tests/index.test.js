@@ -23,12 +23,91 @@ test('note with name post type discovery', () => {
   expect(type).toBe('note');
 });
 
+test('note with summary post type discovery', () => {
+  const mf2 = {
+    type: ['h-entry'],
+    properties: {
+      name: ['Title'],
+      summary: ['Note summary'],
+    },
+  };
+  const type = ptd(mf2);
+  expect(type).toBe('note');
+});
+
 test('article post type discovery', () => {
   const mf2 = {
     type: ['h-entry'],
     properties: {
       name: ['Title'],
       content: ['content'],
+    },
+  };
+  const type = ptd(mf2);
+  expect(type).toBe('article');
+});
+
+test('article with HTML post type discovery', () => {
+  const mf2 = {
+    type: ['h-entry'],
+    properties: {
+      name: ['Title'],
+      content: [
+        {
+          html: '<p>Content in <em>HTML</em> format.</p>',
+        },
+      ],
+    },
+  };
+  const type = ptd(mf2);
+  expect(type).toBe('article');
+});
+
+test('article with plain text post type discovery', () => {
+  const mf2 = {
+    type: ['h-entry'],
+    properties: {
+      name: ['Title'],
+      content: [
+        {
+          value: 'Content in _Markdown_ format.',
+        },
+      ],
+    },
+  };
+  const type = ptd(mf2);
+  expect(type).toBe('article');
+});
+
+test('article with HTML and plain text post type discovery', () => {
+  const mf2 = {
+    type: ['h-entry'],
+    properties: {
+      name: ['Title'],
+      content: [
+        {
+          html: '<p>Content in <em>HTML</em> format.</p>',
+          value: 'Content in _Markdown_ format.',
+        },
+      ],
+    },
+  };
+  const type = ptd(mf2);
+  expect(type).toBe('article');
+});
+
+test('article with summary post type discovery', () => {
+  const mf2 = {
+    type: ['h-entry'],
+    properties: {
+      name: ['Title'],
+      summary: ['Summary of content'],
+      content: [
+        {
+          html: '<p>Content</p>',
+          value: 'Content',
+        },
+      ],
     },
   };
   const type = ptd(mf2);
